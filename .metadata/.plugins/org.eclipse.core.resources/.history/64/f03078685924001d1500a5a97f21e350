@@ -1,0 +1,43 @@
+package Fraction;
+
+import java.util.Scanner;
+
+public class funFraction {
+	public static Scanner s = new Scanner(System.in);
+	
+	private int number, denomin;
+	
+	funFraction(){
+		number = 1;
+		denomin = 1;
+	}
+	
+	public funFraction(int n, int d) {
+		this.number = n;
+		this.denomin = d;
+	}
+	
+	public void inPut(){
+		int a, b;
+		a = s.nextInt();
+		b = s.nextInt();
+		number = a;
+		denomin = b;
+		if( denomin == 0)
+			System.out.println("Erorr! Please enter again!");
+	}
+	
+	 public void outPut() { 
+		 if(number ==0)	
+				System.out.println("0");
+		 else if(denomin == 1)
+				System.out.println(number);	 
+		 else System.out.println(number + "/" + denomin);	 
+	 }
+	 
+	 public void Reverse() {
+		 funFraction r = new funFraction();
+		 r.number = denomin;
+		 r.denomin = number;
+	 }
+}

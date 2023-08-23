@@ -1,0 +1,66 @@
+package Date;
+
+import java.util.Scanner;
+
+public class funcDate{	
+	int dinm[] = {0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+	private int d, m, y;
+	
+	funcDate(){
+		d =1;
+		m =1;
+		y =1900;
+	}
+	public  funcDate(int d, int m, int y){
+		this.d = d;
+		this.m = m;
+		this.y = y;
+	}												//Bai9ex1w10
+	// check date
+	public boolean checkDate() {
+		if ((y%4==0 && y%100!=0) || y % 400==0) 
+			dinm[2] =29;
+		if(m < 1 || m >12)
+			return false;
+		else
+			return (d >=1 && d<=dinm[m]);
+	}
+		
+	public void scan() {
+		Scanner sc = new Scanner(System.in);
+		do {
+			d = sc.nextInt();
+			m = sc.nextInt();
+			y = sc.nextInt();
+			if(!this.checkDate())
+				System.out.println("U là trời sai rồi anh bạn à =)) Nhập lại đê! =))");
+		} while(!this.checkDate());
+	}
+		
+	public void printDate() {
+		System.out.println("Date: " +this.d +"/"+ this.m +"/"+ this.y);
+	}
+		
+	public funcDate tomorrow() {
+		funcDate tmr = new funcDate();
+		if ((y%4==0 && y%100!=0) || y % 400==0) 
+			dinm[2] =29;
+		if(d >=1 && d<=dinm[m]) {
+			tmr.d = d + 1;
+			tmr.m = m;
+			tmr.y = y;
+		}
+		else {
+			tmr.d = 1;
+			tmr.m = m+1;
+			tmr.y = y;
+		}
+			
+		if(tmr.m == 13) {
+			tmr.m = 1;
+			tmr.y++ ;
+		}	
+		return tmr;
+	}
+}
+

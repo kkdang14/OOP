@@ -1,0 +1,17 @@
+public class WaterJugProblem {
+
+    static final int tankcapacityX = 9;  // suc chua binh X
+    static final int tankcapacityY = 4;  // suc chua binh Y
+    static final int empty = 0;
+    static final int goal = 6;  // Muc tieu luong nuoc can
+    static final int Maxlength = 100;  // Su dung cai dat Stack
+
+    static final String[] action = {
+        "First State",
+        "pour Water Full X",
+        "pour Water Full Y",
+        "pour Water Empty X",
+        "pour Water Empty Y",
+        "pour Water X to Y",
+        "pour Water Y to X"
+    };

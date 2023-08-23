@@ -1,0 +1,11 @@
+package Lession1;
+
+public class main {
+	public static void main(){
+		Date d1 = new Date(27, 07, 2003);
+		d1.printDay();
+		d1.printMonth();
+		d1.printYear();
+		d1.printDate();
+	}
+}

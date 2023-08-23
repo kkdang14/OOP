@@ -1,0 +1,199 @@
+packages
+
+public class WaterJugProblem {
+
+    static final int tankcapacityX = 9;  // suc chua binh X
+    static final int tankcapacityY = 4;  // suc chua binh Y
+    static final int empty = 0;
+    static final int goal = 6;  // Muc tieu luong nuoc can
+    static final int Maxlength = 100;  // Su dung cai dat Stack
+
+    static final String[] action = {
+        "First State",
+        "pour Water Full X",
+        "pour Water Full Y",
+        "pour Water Empty X",
+        "pour Water Empty Y",
+        "pour Water X to Y",
+        "pour Water Y to X"
+    };
+
+    // Khai bao cau truc trang thai
+    static class State {
+        int x, y;
+        State(int x, int y) {
+            this.x = x;
+            this.y = y;
+        }
+    }
+
+    // Khoi tao trang thai binh X = 0 va Y = 0
+    static State makeNullState() {
+        return new State(0, 0);
+    }
+
+    // in trang thai
+    static void printState(State state) {
+        System.out.println("\n X:" + state.x + " --- Y:" + state.y);
+    }
+
+    // Ham kiem tra trang thai muc tieu
+    static boolean goalCheck(State state) {
+        return state.x == goal || state.y == goal;
+    }
+
+    // Lam day nuoc binh X
+    static boolean pourWaterFullX(State curState, State result) {
+        if (curState.x < tankcapacityX) {
+            result.x = tankcapacityX;
+            result.y = curState.y;
+            return true;
+        }
+        return false;
+    }
+
+    // Lam day nuoc binh Y
+    static boolean pourWaterFullY(State curState, State result) {
+        if (curState.y < tankcapacityY) {
+            result.y = tankcapacityY;
+            result.x = curState.x;
+            return true;
+        }
+        return false;
+    }
+
+    // Lam rong binh X 
+    static boolean pourWaterEmptyX(State curState, State result) {
+        if (curState.x > 0) {
+            result.x = 0;
+            result.y = curState.y;
+            return true;
+        }
+        return false;
+    }
+
+    // Lam rong binh Y
+    static boolean pourWaterEmptyY(State curState, State result) {
+        if (curState.y > 0) {
+            result.y = 0;
+            result.x = curState.x;
+            return true;
+        }
+        return false;
+    }
+
+    // Chuyen nuoc tu binh X sang binh Y
+    static boolean pourWaterXY(State curState, State result) {
+        if (curState.x > 0 && curState.y < tankcapacityY) {
+            result.x = Math.max(curState.x - (tankcapacityY - curState.y), empty);
+            result.y = Math.min(curState.y + curState.x, tankcapacityY);
+            return true;
+        }
+        return false;
+    }
+
+    // Chuyen nuoc tu binh Y sang binh X
+    static boolean pourWaterYX(State curState, State result) {
+        if (curState.y > 0 && curState.x < tankcapacityX) {
+            result.x = Math.min(curState.x + curState.y, tankcapacityX);
+            result.y = Math.max(curState.y - (tankcapacityX - curState.x), empty);
+            return true;
+        }
+        return false;
+    }
+
+    // Goi cac phep toan tren trang thai
+    static boolean callOperator(State curState, State result, int option) {
+        switch (option) {
+            case 1: return pourWaterFullX(curState, result);
+            case 2: return pourWaterFullY(curState, result);
+            case 3: return pourWaterEmptyX(curState, result);
+            case 4: return pourWaterEmptyY(curState, result);
+            case 5: return pourWaterXY(curState, result);
+            case 6: return pourWaterYX(curState, result);
+            default:
+                System.out.println("\n--- Error calls operators ---");
+                return false;
+        }
+    }
+
+    // Khai bao cau truc nut de dung cay tim kiem
+    static class Node {
+        State state;
+        Node parent;
+        int noFunction;
+        Node(State state, Node parent, int noFunction) {
+            this.state = state;
+            this.parent = parent;
+            this.noFunction = noFunction;
+        }
+    }
+
+    // So sanh 2 trang thai 
+    static boolean compareStates(State a, State b) {
+        return a.x == b.x && a.y == b.y;
+    }
+
+    // Tim trang thai trong Stack Open/Close
+    static boolean findState(State state, Stack<Node> stack) {
+        for (Node node : stack) {
+            if (compareStates(node.state, state)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    // DFS
+    static Node DFS_Algorithm(State state) {
+        Stack<Node> openStack = new Stack<>();
+        Stack<Node> closeStack = new Stack<>();
+        Node root = new Node(state, null, 0);
+        openStack.push(root);
+
+        while (!openStack.empty()) {
+            Node node = openStack.pop();
+            closeStack.push(node);
+
+            if (goalCheck(node.state)) {
+                return node;
+            }
+
+            for (int opt = 1; opt <= 6; ++opt) {
+                State newState = makeNullState();
+                if (callOperator(node.state, newState, opt)) {
+                    if (findState(newState, closeStack) || findState(newState, openStack)) {
+                        continue;
+                    }
+                    Node newNode = new Node(newState, node, opt);
+                    openStack.push(newNode);
+                }
+            }
+        }
+
+        return null;
+    }
+
+    // in ket qua chuyen nuoc de dat den trang thai muc tieu
+    static void printWaysToGetGoal(Node node) {
+        Stack<Node> stackPrint = new Stack<>();
+        while (node != null) {
+            stackPrint.push(node);
+            node = node.parent;
+        }
+
+        int noAction = 0;
+        while (!stackPrint.empty()) {
+            System.out.println("\nAction " + noAction + ": " + action[stackPrint.peek().noFunction]);
+            printState(stackPrint.peek().state);
+            stackPrint.pop();
+            noAction++;
+        }
+    }
+
+    public static void main(String[] args) {
+        State curState = new State(0, 0);
+        Node p = DFS_Algorithm(curState);
+        printWaysToGetGoal(p);
+    }
+}

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename compilation unit &apos;JavaBasic.AddTwoNumbers.java&apos; to &apos;Tong2SoNguyen.java&apos;&#x0D;&#x0A;- Original project: &apos;JavaProject&apos;&#x0D;&#x0A;- Original element: &apos;JavaBasic.AddTwoNumbers.java&apos;&#x0D;&#x0A;- Renamed element: &apos;JavaBasic.Tong2SoNguyen.java&apos;" description="Rename compilation unit &apos;AddTwoNumbers.java&apos;" flags="2" id="org.eclipse.jdt.ui.rename.compilationunit" input="/src&lt;JavaBasic{AddTwoNumbers.java" name="Tong2SoNguyen.java" references="false" stamp="1692422406364" version="1.0"/>
+</session>

@@ -1,0 +1,16 @@
+package Lession1;
+
+import java.util.Scanner;
+
+public class UsePoint {
+	public static Scanner sc = new Scanner(System.in);
+	public static void main(String[]args) {
+	Point A = new Point(3, 4);
+	System.out.print("A");
+	A.print();
+	Point B = new Point(0,0);
+	B.read();
+	System.out.println(B);
+	B.print();
+	}
+}

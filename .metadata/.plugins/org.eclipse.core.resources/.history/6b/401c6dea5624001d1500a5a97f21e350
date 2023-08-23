@@ -1,0 +1,21 @@
+package Fraction;
+
+import java.util.Scanner;
+
+public class funFraction {
+	public static Scanner s = new Scanner(System.in);
+	
+	private int number, denomin;
+	
+	funFraction(){
+		number = 1;
+		denomin = 1;
+	}
+	
+	public funFraction(int n, int d) {
+		this.number = n;
+		this.denomin = d;
+	}
+	
+	
+}

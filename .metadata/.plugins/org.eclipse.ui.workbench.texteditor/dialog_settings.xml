@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="org.eclipse.ui.texteditor.GotoLineAction$GotoLineDialog_dialogBounds">
+		<item key="DIALOG_X_ORIGIN" value="646"/>
+		<item key="DIALOG_Y_ORIGIN" value="349"/>
+	</section>
+	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
+		<item key="selection" value="mso"/>
+		<item key="wrap" value="true"/>
+		<item key="casesensitive" value="false"/>
+		<item key="wholeword" value="false"/>
+		<item key="incremental" value="false"/>
+		<item key="isRegEx" value="false"/>
+		<list key="findhistory">
+			<item value="cccd "/>
+			<item value="SV"/>
+			<item value="outPut"/>
+			<item value="Fraction"/>
+			<item value="mul"/>
+			<item value="sub"/>
+			<item value="denomin"/>
+			<item value="number"/>
+			<item value="print"/>
+			<item value="funcPoint"/>
+			<item value="funFraction"/>
+			<item value="Point"/>
+		</list>
+		<list key="replacehistory">
+			<item value="mso"/>
+			<item value="sv"/>
+			<item value="in"/>
+			<item value="PhanSo"/>
+			<item value="c"/>
+			<item value="nhan"/>
+			<item value="tru"/>
+			<item value="mau"/>
+			<item value="tu"/>
+			<item value="tuso"/>
+			<item value="hienThi"/>
+			<item value="Diem"/>
+			<item value="Fraction"/>
+			<item value="funcPoint"/>
+			<item value="usePoint"/>
+		</list>
+	</section>
+	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
+		<item key="DIALOG_X_ORIGIN" value="1043"/>
+		<item key="DIALOG_Y_ORIGIN" value="191"/>
+		<item key="DIALOG_WIDTH" value="414"/>
+		<item key="DIALOG_HEIGHT" value="454"/>
+		<item key="DIALOG_FONT_NAME" value="1|Segoe UI|9.0|0|WINDOWS|1|-15|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI"/>
+	</section>
+</section>

@@ -1,0 +1,11 @@
+package JavaBasic;
+
+public class List2 {
+	public static void main(String args[]) {
+		Function4List2 n = new Function4List2();
+		n.input();
+		n.sort();
+		n.output();
+		n.sum();
+	}
+}

@@ -1,0 +1,12 @@
+package Fraction;
+
+public class useFraction {
+	public static void main(String[] args) {
+		funFraction f = new funFraction();
+		f.inPut();
+		f.outPut();
+		f.Reverse().outPut();
+	}
+}
+
+

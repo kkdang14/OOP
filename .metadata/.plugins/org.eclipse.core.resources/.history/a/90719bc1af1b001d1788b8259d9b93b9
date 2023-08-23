@@ -1,0 +1,22 @@
+package Lession1;
+
+import java.util.Scanner;
+
+public class PointTest {
+	public static Scanner sc = new Scanner(System.in);
+	public static void main(String[]args) {
+	Point A = new Point(3, 4);
+	System.out.print("A");
+	A.print();
+	Point B = new Point(0,0);
+	B.read();
+	System.out.print("B");
+	B.print();
+	Point D = new Point(-B.getX(), B.getX());
+	Point C = new Point(D.getX(), -D.getY());
+	System.out.print("C");
+	C.print();
+	System.out.print(B.distance());
+	System.out.print(A.distance(B));
+	}
+}
